@@ -18,7 +18,7 @@ services:
       - db
     ports:
       - "11013:8069"
-      - "20013:8072" # live chat
+      - "21013:8072" # live chat
     tty: true
     command: --
 #    command: odoo scaffold /mnt/extra-addons/test_module
