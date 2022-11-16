@@ -1,21 +1,21 @@
 version: '2'
 services:
-  db:
+  db-hermess:
     image: postgres:11
     user: root
     environment:
-      - POSTGRES_PASSWORD=odoo
-      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=Welcome02$$
+      - POSTGRES_USER=ics
       - POSTGRES_DB=postgres
     restart: always             # run as a service
     volumes:
         - ./postgresql:/var/lib/postgresql/data
 
-  odoo13:
+  hermess:
     image: odoo:13
     user: root
     depends_on:
-      - db
+      - db-hermess
     ports:
       - "15213:8069"
       - "25213:8072" # live chat
@@ -23,9 +23,9 @@ services:
     command: --
 #    command: odoo scaffold /mnt/extra-addons/test_module
     environment:
-      - HOST=db
-      - USER=odoo
-      - PASSWORD=odoo
+      - HOST=db-hermess
+      - USER=ics
+      - PASSWORD=Welcome02$$
     volumes:
       #- /etc/timezone:/etc/timezone:ro
       #- /etc/localtime:/etc/localtime:ro
